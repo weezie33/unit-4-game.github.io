@@ -7,7 +7,7 @@
   var wins = 0;
   var losses = 0;
   var counter = 0;
-  // var yourScore = counter;
+  var yourScore = [""];
 
   function randomNumber(seed, selectNumber) {
     console.log(randomNumber);
@@ -62,6 +62,9 @@
         $("#wins").html(wins);
         counter = 0;
         $("#yourScore").text(counter);
+        randomNumber = 0;
+        $("#number-to-guess").text(randomNumber);
+        
       
       }else if (counter > randomNumber){
       	alert("You Suck!");
@@ -69,17 +72,25 @@
         $("#losses").html(losses);
         counter = 0;
         $("#yourScore").text(counter);
+        randomNumber = 0;
+        $("#number-to-guess").text(randomNumber);
+      
       }
     });
 
-////////////////NEW SECTION///////////////
 
-  if(yourscore.indexOf(counter) >= 0) {
+////////////////NEW SECTION///////////////
+if(yourScore == randomNumber) {
+    wins++;
+    randomNumber = 0;
+    
+  }
+  if(yourScore.indexOf(counter) >= 0) {
 
   } else {
-      yourscore.push(counter);
+      yourScore.push(counter);
 
-        document.getElementById("randomnumber").innerHTML = + randomNumber;
+        document.getElementById("randomNumber").innerHTML = "number-to-guess" + randomNumber;
           console.log(randomNumber);
 
         document.getElementById("wins").innerHTML = + wins;
@@ -88,6 +99,6 @@
         document.getElementById("losses").innerHTML = + losses;
           console.log(losses);
         
-        document.getElementById("yourscore").innerHTML = "wins" + yourScore;
+        document.getElementById("yourScore").innerHTML = "wins" + yourScore;
           console.log(yourScore);
     }
